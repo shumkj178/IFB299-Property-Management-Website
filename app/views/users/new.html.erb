@@ -12,31 +12,48 @@
   </div>
 </header>
 <body>
+<div class="container">
 <h1 class="text-center" style="font-weight: bold">Sign up</h1>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@user) do |f| %>
+          <%= render 'shared/error_messages_html' %>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
-        <%= render 'shared/error_messages_html' %>
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, class: 'form-control' %>
 
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name, class: 'form-control' %>
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: 'form-control' %>
 
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name, class: 'form-control' %>
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
 
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control' %>
+          <h6 style="color: #666666; font-style: italic">Password must be more than a combination of
+            6 characters or numbers or mixed but less than 20.</h6>
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
 
-        <h6 style="color: #666666; font-style: italic">Password must be more than a combination of
-          6 characters or numbers or mixed but less than 20.</h6>
-        <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control' %>
+          <%= f.label :user_type, 'User Type' %>
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+              <div class="radio-inline">
+                <%= f.radio_button :user_type, 'customer', :checked => true %>
+                <%= label :user_type, 'Customer' %>
+              </div>
 
-        <%= f.hidden_field :user_type, :value => "customer" %>
+              <div class="radio-inline">
+                <%= f.radio_button :user_type, 'property_owner' %>
+                <%= label :user_type, 'Property Owner' %>
+              </div>
+            </div>
+          </div>
 
-        <%= f.submit "Create my account", class: "btn btn-primary" %>
-    <% end %>
+          <div>
+            <%= f.submit "Create my account", class: "btn btn-primary btn-block" %>
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>
+
 </body>
