@@ -1,12 +1,12 @@
 <% provide(:title, 'Sign up') %>
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "David's Rental", '#', id: 'logo' %>
+    <%= link_to "David's Rental", root_path, id: 'logo' %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Home', home_path %></li>
         <li><%= link_to 'Help', help_path %></li>
-        <li><%= link_to 'Log in' %></li>
+        <li><%= link_to 'Log in', login_path %></li>
       </ul>
     </nav>
   </div>
@@ -28,10 +28,10 @@
           <%= f.label :email %>
           <%= f.email_field :email, class: 'form-control' %>
 
-          <h6 style="color: #666666; font-style: italic">Password must be more than a combination of
-            6 characters or numbers or mixed but less than 20.</h6>
           <%= f.label :password %>
           <%= f.password_field :password, class: 'form-control' %>
+          <h6 style="color: #666666; font-style: italic">Password must be more than a combination of
+            6 characters or numbers or mixed but less than 20.</h6>
 
           <%= f.label :user_type, 'User Type' %>
           <div class="row">
