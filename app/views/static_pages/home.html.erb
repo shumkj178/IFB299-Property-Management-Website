@@ -34,7 +34,7 @@
   </div>
 </header>
 <body>
-<% if logged_in? %>
+<% if logged_in? && current_user.user_type == 'customer' %>
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -47,9 +47,11 @@
         <div class="center item active">
           <h1>Good day <%= current_user.first_name %>!</h1>
           <h2>Check out the best rates properties we have now!</h2>
+          <%= link_to "View Properties", properties_path,class: 'btn btn-lg btn-success' %>
         </div>
         <div class="item">
           <h1 class="text-center">Hey!</h1>
+          <h2 class="text-center">Customer shows here</h2>
         </div>
       </div>
 
@@ -61,16 +63,96 @@
         <span class="glyphicon glyphicon-chevron-right"></span>
       </a>
     </div>
-<% else %>
-  <!--<div class="center jumbotron">-->
-    <!--<h1>Welcome to the David's Rental</h1>-->
+<% end %>
+<% if logged_in? && current_user.user_type == 'property_owner' %>
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    </ol>
 
-    <!--<h2>-->
-      <!--Check out the best rates properties we have now!-->
-    <!--</h2>-->
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="center item active">
+        <h1>Good day <%= current_user.first_name %>!</h1>
+        <h2>Upload your property image and details now!</h2>
+      </div>
+      <div class="item">
+        <h1 class="text-center">Hey!</h1>
+        <h2 class="text-center">Customers are looking for houses around Kelvin Grove!</h2>
+      </div>
+    </div>
 
-    <!--<%= link_to "Sign up now!", new_users_path, class: 'btn btn-lg btn-primary' %>-->
-  <!--</div>-->
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+<% end %>
+<% if logged_in? && current_user.user_type == 'owner' %>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="center item active">
+          <h1>Welcome back <%= current_user.first_name %>!</h1>
+          <h2>There are 3 insepctions waiting you to allocate.</h2>
+          <%= link_to "Allocate Inspection", '#', class: 'btn btn-lg btn-default' %>
+        </div>
+        <div class="item">
+          <h1 class="text-center">Hey!</h1>
+          <h2 class="text-center">Owner shows here</h2>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+<% end %>
+<% if logged_in? && current_user.user_type == 'employee' %>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner">
+        <div class="center item active">
+          <h1>Good day <%= current_user.first_name %>!</h1>
+          <h2>Check your inspection assignments</h2>
+        </div>
+        <div class="item">
+          <h1 class="text-center">Hey!</h1>
+          <h2 class="text-center">Employee shows here</h2>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+    </div>
+<% end %>
+<% if !logged_in? %>
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">

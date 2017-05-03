@@ -43,16 +43,24 @@
 
   <tbody>
     <% @properties.each do |property| %>
-      <tr>
-        <td><%= link_to 'Show', property %></td>
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 text-center">
+            <%= link_to property do %>
+              <%= image_tag("/properties/" + property.id.to_s + ".jpg", size: '300x180', alt: 'View') %>
+            <% end %>
+            <h4 class="text-left" style="margin-left: 30px">Property Details:</h4>
+            <h4 class="text-left" style="margin-left: 30px">
+              <%= property.house_no + ", " + property.street + ", " + property.suburbs + ", " + property.postcode + " " + property.region %>
+            </h4>
+          </div>
+        </div>
+      </div>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Property', new_property_path %>
+<%= link_to 'New Property', new_properties_path %>
 </body>
