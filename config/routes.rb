@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
+  get '/user/:id', to: 'users#show', :as => :user
   # get '/successful-sign-up', :to => redirect('/')
   resource 'users'
 
