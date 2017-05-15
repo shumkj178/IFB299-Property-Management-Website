@@ -1,6 +1,67 @@
-<h1>Editing Property</h1>
+<body>
+<div class="container">
+  <h1 class="text-center" style="font-weight: bold">Update Property</h1>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@property) do |f| %>
 
-<%= render 'form', property: @property %>
+          <%= f.label :house_no do %>
+              <i class="fa fa-home"></i><span style="padding-right: 1em"></span>House Number
+          <% end %>
+          <%= f.text_field :house_no, class: 'form-control', placeholder: "Eg: Unit 1/24 or 24" %>
+          <h6 style="color: #666666; font-style: italic">Please key in unit number here as well
+            (if you have any)</h6>
 
-<%= link_to 'Show', @property %> |
-<%= link_to 'Back', properties_path %>
+          <%= f.label :street do %>
+              <i class="fa fa-road"></i><span style="padding-right: 1em"></span>Street
+          <% end %>
+          <%= f.text_field :street, class: 'form-control', placeholder: "Eg: Herston Road" %>
+
+          <%= f.label :suburbs do %>
+              <i class="fa fa-map-signs"></i><span style="padding-right: 1em"></span>Suburbs
+          <% end %>
+          <%= f.text_field :suburbs, class: 'form-control', placeholder: "Eg, Kelvin Grove" %>
+
+          <%= f.label :postcode do %>
+              <i class="fa fa-map-pin"></i><span style="padding-right: 1em"></span>Postcode
+          <% end %>
+          <%= f.text_field :postcode, class: 'form-control', placeholder: "Eg: 4059" %>
+
+          <%= f.label :region do %>
+              <i class="fa fa-globe"></i><span style="padding-right: 1em"></span>Region
+          <% end %>
+          <%= f.text_field :region, class: 'form-control', placeholder: "Eg: QLD" %>
+
+          <%= f.label :price do %>
+              <i class="fa fa-dollar"></i><span style="padding-right: 1em"></span>Price
+          <% end %>
+          <%= f.number_field :price, class: 'form-control', placeholder: "Eg: 520" %>
+
+          <%= f.label :bedroom_no do %>
+              <i class="fa fa-bed"></i><span style="padding-right: 1em"></span>Bedroom Number
+          <% end %>
+          <%= f.number_field :bedroom_no, class: 'form-control', placeholder: "Eg: 2" %>
+
+          <%= f.label :bathroom_no do %>
+              <i class="fa fa-bath"></i><span style="padding-right: 1em"></span>Bathroom Number
+          <% end %>
+          <%= f.number_field :bathroom_no, class: 'form-control', placeholder: "Eg: 2" %>
+
+          <%= f.label :garage_no do %>
+              <i class="fa fa-car"></i><span style="padding-right: 1em"></span>Garage Number
+          <% end %>
+          <%= f.number_field :garage_no, class: 'form-control', placeholder: "Eg: 2" %>
+
+          <%= f.label :picture_path do %>
+              <i class="fa fa-image"></i><span style="padding-right: 1em"></span>Please upload one image to represent your property
+          <% end %>
+          <%= f.file_field :picture_path, class: 'form-control' %>
+
+          <div>
+            <%= f.submit "Save Changes", class: "btn btn-primary btn-block" %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</body>
