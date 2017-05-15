@@ -21,6 +21,9 @@
           <h6 style="color: #666666; font-style: italic">Password must be more than a combination of
             6 characters or numbers or mixed but less than 20.</h6>
 
+          <%= f.label :contact_number %>
+          <%= f.phone_field :contact_number, class: 'form-control' %>
+
           <div>
             <%= f.submit "Save Changes", class: "btn btn-primary btn-block" %>
           </div>

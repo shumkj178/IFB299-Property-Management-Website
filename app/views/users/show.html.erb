@@ -4,6 +4,11 @@
   <div class="row">
     <div class="col-md-4">
       <%= image_tag('/profile-image/gary.png', style: 'height:70%;' 'width:70%;') %>
+      <h4>
+        <%= link_to edit_user_path(current_user) do %>
+            <span style="padding-right: 4em"></span><i class="fa fa-pencil-square"></i> Edit Profile
+      <% end %>
+      </h4>
     </div>
     <div class="col-md-4">
       <h2>

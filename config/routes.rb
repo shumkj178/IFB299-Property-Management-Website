@@ -7,13 +7,15 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
-  get '/user/:id', to: 'users#show', :as => :user
+  get '/user/:id' => 'users#show', :as => :user
+  get '/user/:id/edit', to: 'users#edit', :as => :edit_user
+  patch 'user/:id' => 'users#update'
   # get '/successful-sign-up', :to => redirect('/')
   resource 'users'
 
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   get '/properties', to: 'properties#index'
   get '/property/:id', to: 'properties#show', :as => :property
