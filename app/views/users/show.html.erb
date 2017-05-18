@@ -1,4 +1,45 @@
 <p id="notice"><%= notice %></p>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag('/profile-image/gary.png', style: 'height:70%;' 'width:70%;') %>
+      <h4>
+        <%= link_to edit_user_path(current_user) do %>
+            <span style="padding-right: 4em"></span><i class="fa fa-pencil-square"></i> Edit Profile
+      <% end %>
+      </h4>
+    </div>
+    <div class="col-md-4">
+      <h2>
+        <i class="fa fa-user-circle"></i><span style="padding-right: 2em"></span><%= current_user.first_name + " " + current_user.last_name %>
+      </h2>
+      <h3><i class="fa fa-envelope fa-lg"></i><span style="padding-right: 2.5em"></span><%= current_user.email %></h3>
+      <h3>
+        &nbsp;<i class="fa fa-phone fa-lg"></i><span style="padding-right: 2.5em"></span><%= current_user.contact_number %>
+      </h3>
+      <% if current_user.user_type == 'customer' %>
+          <h3>
+            <i class="fa fa-id-card fa-lg"></i><span style="padding-right: 2.3em"></span>Customer
+          </h3>
+      <% end %>
+      <% if current_user.user_type == 'property_owner' %>
+          <h3>
+            <i class="fa fa-id-card fa-lg"></i><span style="padding-right: 2.3em"></span>Property Owner
+          </h3>
+      <% end %>
+      <% if current_user.user_type == 'employee' %>
+          <h3>
+            <i class="fa fa-id-card fa-lg"></i><span style="padding-right: 2.3em"></span>Employee
+          </h3>
+      <% end %>
+      <% if current_user.user_type == 'owner' %>
+          <h3>
+            <i class="fa fa-id-card fa-lg"></i><span style="padding-right: 2.3em"></span>Owner
+          </h3>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+</body>

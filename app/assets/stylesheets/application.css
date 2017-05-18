@@ -12,4 +12,6 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
+@import url('https://fonts.googleapis.com/css?family=Roboto');

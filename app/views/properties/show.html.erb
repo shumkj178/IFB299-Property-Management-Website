@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<body>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3 text-center">
+    <%= image_tag @property.picture_path %>
+  </div>
+  <div class="col-lg-6 col-lg-offset-3 text-center">
+    <h3><%= @property.house_no + ", " + @property.street + ", " + @property.suburbs + ", " + @property.postcode + " " + @property.region %></h3>
+    <h3>
+      <i class="fa fa-bed"></i> <%= @property.bedroom_no %>
+      <span style="margin-left: 1em"></span>
+      <i class="fa fa-bath"></i> <%= @property.bathroom_no %>
+      <span style="margin-left: 1em"></span>
+      <i class="fa fa-car"></i> <%= @property.garage_no %>
+    </h3>
+    <h3><i class="fa fa-dollar"></i> <%= @property.price.to_s + " per week" %></h3>
+  </div>
+</div>
+</body>
