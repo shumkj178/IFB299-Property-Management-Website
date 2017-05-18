@@ -9,6 +9,25 @@
   <tbody>
   <div class="container">
     <div class="row">
+      <div class="col-md-10 col-md-offset-1 text-center input-group">
+        <%= form_tag(properties_path, :method => 'get') do %>
+            <%= text_field_tag :search, params[:search], class: 'form-control',
+                               placeholder: "Search Properties (Eg: Tait Street or Kelvin Grove or 4059 or QLD)" %>
+            <span class="input-group-btn">
+              <%= button_tag class: 'btn btn-primary', :name => nil do %>
+                <span class="fa fa-search"></span>
+              <% end %>
+            </span>
+        <% end %>
+      </div>
+    </div>
+    <br>
+    <% if @properties.blank? %>
+        <div class="alert alert-danger text-center">
+          <h4>There is no property containing the term <%= params[:search] %>.</h4>
+        </div>
+    <% end %>
+    <div class="row">
       <% @properties.each do |property| %>
           <div class="col-md-4 text-center">
             <%= link_to property do %>
