@@ -16,4 +16,18 @@
     <h3><i class="fa fa-dollar"></i> <%= @property.price.to_s + " per week" %></h3>
   </div>
 </div>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3 text-center">
+    <%= link_to '#', class: 'btn btn-success' do %>
+        <h4><i class="fa fa-calendar-check-o"></i><span style="padding-right: 10px"></span>Book Inspection</h4>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3 text-center">
+    <%= link_to request.referer.present? ? request.referer : properties_path, class: 'btn btn-positive' do %>
+        <h5><u>Back</u></h5>
+    <% end %>
+  </div>
+</div>
 </body>
