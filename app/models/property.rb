@@ -1,6 +1,6 @@
 class Property < ApplicationRecord
   def self.search(search)
-    where("street LIKE ? OR suburbs LIKE ? OR postcode LIKE ? OR region LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+    where("street ILIKE ? OR suburbs ILIKE ? OR postcode ILIKE ? OR region ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
   validates :house_no, presence: true
