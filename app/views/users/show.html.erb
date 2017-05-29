@@ -3,12 +3,38 @@
 <div class="container">
   <div class="row">
     <div class="col-md-4">
-      <%= image_tag('/profile-image/gary.png', style: 'height:70%;' 'width:70%;') %>
-      <h4>
-        <%= link_to edit_user_path(current_user) do %>
-            <span style="padding-right: 4em"></span><i class="fa fa-pencil-square"></i> Edit Profile
+      <% if current_user.user_type == 'customer' %>
+          <%= image_tag('/profile-image/customer.png', style: 'height:70%;' 'width:70%;') %>
+          <h4>
+            <%= link_to edit_user_path(current_user) do %>
+                <span style="padding-right: 4em"></span><i class="fa fa-pencil-square"></i> Edit Profile
+            <% end %>
+          </h4>
       <% end %>
-      </h4>
+      <% if current_user.user_type == 'property_owner' %>
+          <%= image_tag('/profile-image/Owner.png', style: 'height:70%;' 'width:70%;') %>
+          <h4>
+            <%= link_to edit_user_path(current_user) do %>
+                <span style="padding-right: 4em"></span><i class="fa fa-pencil-square"></i> Edit Profile
+            <% end %>
+          </h4>
+      <% end %>
+      <% if current_user.user_type == 'owner' %>
+          <%= image_tag('/profile-image/gary.png', style: 'height:70%;' 'width:70%;') %>
+          <h4>
+            <%= link_to edit_user_path(current_user) do %>
+                <span style="padding-right: 4em"></span><i class="fa fa-pencil-square"></i> Edit Profile
+            <% end %>
+          </h4>
+      <% end %>
+      <% if current_user.user_type == 'employee' %>
+          <%= image_tag('/profile-image/employee.png', style: 'height:70%;' 'width:70%;') %>
+          <h4>
+            <%= link_to edit_user_path(current_user) do %>
+                <span style="padding-right: 4em"></span><i class="fa fa-pencil-square"></i> Edit Profile
+            <% end %>
+          </h4>
+      <% end %>
     </div>
     <div class="col-md-4">
       <h2>
