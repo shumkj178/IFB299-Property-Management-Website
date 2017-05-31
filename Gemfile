@@ -55,3 +55,5 @@ gem 'carrierwave', '~> 1.0'
 gem 'font-awesome-rails'
 
 gem 'rails_12factor', group: :production
+
+gem 'rails-controller-testing'
